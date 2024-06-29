@@ -1,1 +1,3 @@
-# りょーへい考案のメモアプリのbackend
+# daily notes backend
+
+りょーへい考案のメモアプリのbackend
