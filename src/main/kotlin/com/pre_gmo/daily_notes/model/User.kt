@@ -9,23 +9,11 @@ data class User(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val name: String,
+    @Column(unique = true)
     val email: String,
-    @Column(name = "created_at", updatable = false)
-    var createdAt: OffsetDateTime? = null,
-    @Column(name = "updated_at")
-    var updatedAt: OffsetDateTime? = null
-) {
-    @PrePersist
-    fun prePersist() {
-        val now = OffsetDateTime.now()
-        if (createdAt == null) {
-            createdAt = now
-        }
-        updatedAt = now
-    }
+    @Column(name = "created_at", updatable = false, nullable = false)
+    var createdAt: OffsetDateTime = OffsetDateTime.now(),
+    @Column(name = "updated_at", nullable = false)
+    var updatedAt: OffsetDateTime = OffsetDateTime.now()
 
-    @PreUpdate
-    fun preUpdate() {
-        updatedAt = OffsetDateTime.now()
-    }
-}
+)
