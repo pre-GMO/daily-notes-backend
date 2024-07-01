@@ -28,11 +28,11 @@ dependencies {
 	implementation 'org.jetbrains.kotlin:kotlin-reflect'
 	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
-//	implementation 'javax.servlet:javax.servlet-api:4.0.1'
 	runtimeOnly 'com.h2database:h2'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.jetbrains.kotlin:kotlin-test-junit5'
+	testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
@@ -40,6 +40,10 @@ kotlin {
 	compilerOptions {
 		freeCompilerArgs.addAll '-Xjsr305=strict'
 	}
+}
+test {
+	jvmArgs '-XX:+EnableDynamicAgentLoading'
+	jvmArgs '-Xshare:off'
 }
 
 tasks.named('test') {
