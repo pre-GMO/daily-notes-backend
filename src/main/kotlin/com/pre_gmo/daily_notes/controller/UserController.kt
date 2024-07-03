@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/user", produces = ["application/json"])
 class UserController(
     private val userService: UserService,
 ) {
@@ -17,7 +17,7 @@ class UserController(
         ResponseEntity
             .ok(userService.findAll())
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}", produces = ["application/json"])
     fun getUserById(
         @PathVariable id: Long,
     ): ResponseEntity<User> =
@@ -26,7 +26,7 @@ class UserController(
             .map { ResponseEntity.ok(it) }
             .orElse(ResponseEntity.notFound().build())
 
-    @PostMapping
+    @PostMapping(produces = ["application/json"])
     fun createUser(
         @RequestBody user: UserDTO,
     ): ResponseEntity<User> =
@@ -34,7 +34,7 @@ class UserController(
             .status(HttpStatus.CREATED)
             .body(userService.create((user)))
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}", produces = ["application/json"])
     fun updateUser(
         @PathVariable id: Long,
         @RequestBody updatedUser: UserDTO,
