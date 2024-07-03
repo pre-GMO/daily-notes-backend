@@ -49,3 +49,9 @@ test {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+openApi {
+	apiDocsUrl.set("http://localhost:8080/v3/api-docs.yaml")
+	outputDir.set(file("./docs"))
+	outputFileName.set("openapi.yaml")
+}
