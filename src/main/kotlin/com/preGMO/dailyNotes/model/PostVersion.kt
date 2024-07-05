@@ -1,12 +1,12 @@
 package com.pre_gmo.daily_notes.model
 
-import java.time.OffsetDateTime
 import jakarta.persistence.*
+import java.time.OffsetDateTime
 
 @Entity
 @Table(
-    name="post_versions",
-    uniqueConstraints = [UniqueConstraint(columnNames = ["post_id", "version_number"])]
+    name = "post_versions",
+    uniqueConstraints = [UniqueConstraint(columnNames = ["post_id", "version_number"])],
 )
 data class PostVersion(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,5 +17,5 @@ data class PostVersion(
     @Column(name = "created_at", updatable = false, nullable = false)
     var createdAt: OffsetDateTime = OffsetDateTime.now(),
     @Column(name = "updated_at", nullable = false)
-    var updatedAt: OffsetDateTime = OffsetDateTime.now()
+    var updatedAt: OffsetDateTime = OffsetDateTime.now(),
 )

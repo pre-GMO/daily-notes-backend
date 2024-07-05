@@ -2,19 +2,18 @@ package com.pre_gmo.daily_notes.repository
 
 import com.pre_gmo.daily_notes.UserDTO
 import com.pre_gmo.daily_notes.model.User
-import org.springframework.stereotype.Repository
-import jakarta.persistence.PersistenceContext
 import jakarta.persistence.EntityManager
+import jakarta.persistence.PersistenceContext
 import jakarta.transaction.Transactional
+import org.springframework.stereotype.Repository
 
 @Repository
 class AdditionalUserRepositoryImpl : AdditionalUserRepository {
-
     @PersistenceContext
     private lateinit var entityManager: EntityManager
 
     @Transactional
-    override fun createUser(user: UserDTO) : User {
+    override fun createUser(user: UserDTO): User {
         entityManager.createNativeQuery("INSERT INTO users (name, email) VALUES (?, ?)", User::class.java)
             .setParameter(1, user.name)
             .setParameter(2, user.email)

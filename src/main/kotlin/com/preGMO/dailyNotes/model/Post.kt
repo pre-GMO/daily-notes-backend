@@ -1,10 +1,10 @@
 package com.pre_gmo.daily_notes.model
 
-import java.time.OffsetDateTime
 import jakarta.persistence.*
+import java.time.OffsetDateTime
 
 @Entity
-@Table(name="posts")
+@Table(name = "posts")
 data class Post(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
@@ -14,5 +14,5 @@ data class Post(
     @Column(name = "created_at", updatable = false, nullable = false)
     var createdAt: OffsetDateTime = OffsetDateTime.now(),
     @Column(name = "updated_at", nullable = false)
-    var updatedAt: OffsetDateTime = OffsetDateTime.now()
+    var updatedAt: OffsetDateTime = OffsetDateTime.now(),
 )

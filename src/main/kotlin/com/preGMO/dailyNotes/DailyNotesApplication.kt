@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class DailyNotesApplication
 
 fun main(args: Array<String>) {
-	runApplication<DailyNotesApplication>(*args)
+    runApplication<DailyNotesApplication>(*args)
 }

@@ -1,7 +1,7 @@
 package com.pre_gmo.daily_notes.model
 
-import java.time.OffsetDateTime
 import jakarta.persistence.*
+import java.time.OffsetDateTime
 
 @Entity
 @Table(name = "users") // userは予約語なため
@@ -14,6 +14,5 @@ data class User(
     @Column(name = "created_at", updatable = false, nullable = false)
     var createdAt: OffsetDateTime = OffsetDateTime.now(),
     @Column(name = "updated_at", nullable = false)
-    var updatedAt: OffsetDateTime = OffsetDateTime.now()
-
+    var updatedAt: OffsetDateTime = OffsetDateTime.now(),
 )
