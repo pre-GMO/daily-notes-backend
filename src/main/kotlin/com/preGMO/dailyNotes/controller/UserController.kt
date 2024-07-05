@@ -1,8 +1,8 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.service.UserService
+import com.preGMO.dailyNotes.UserDTO
+import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

@@ -1,6 +1,6 @@
-package com.pre_gmo.daily_notes.repository
+package com.preGMO.dailyNotes.repository
 
-import com.pre_gmo.daily_notes.model.Post
+import com.preGMO.dailyNotes.model.Post
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

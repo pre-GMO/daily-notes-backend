@@ -1,8 +1,8 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.service.UserService
+import com.preGMO.dailyNotes.UserDTO
+import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.service.UserService
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.times

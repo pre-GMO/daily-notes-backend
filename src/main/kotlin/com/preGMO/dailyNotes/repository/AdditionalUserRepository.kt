@@ -1,7 +1,7 @@
-package com.pre_gmo.daily_notes.repository
+package com.preGMO.dailyNotes.repository
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
+import com.preGMO.dailyNotes.UserDTO
+import com.preGMO.dailyNotes.model.User
 
 interface AdditionalUserRepository {
     fun createUser(user: UserDTO): User

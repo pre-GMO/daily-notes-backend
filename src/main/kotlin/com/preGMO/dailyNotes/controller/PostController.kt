@@ -1,7 +1,7 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.model.Post
-import com.pre_gmo.daily_notes.repository.PostRepository
+import com.preGMO.dailyNotes.model.Post
+import com.preGMO.dailyNotes.repository.PostRepository
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 

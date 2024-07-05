@@ -1,4 +1,4 @@
-package com.pre_gmo.daily_notes.model
+package com.preGMO.dailyNotes.model
 
 import jakarta.persistence.*
 import java.time.OffsetDateTime

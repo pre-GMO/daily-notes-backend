@@ -1,4 +1,4 @@
-package com.pre_gmo.daily_notes
+package com.preGMO.dailyNotes
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

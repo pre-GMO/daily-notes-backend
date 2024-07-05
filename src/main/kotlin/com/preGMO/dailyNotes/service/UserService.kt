@@ -1,8 +1,8 @@
-package com.pre_gmo.daily_notes.service
+package com.preGMO.dailyNotes.service
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.repository.UserRepository
+import com.preGMO.dailyNotes.UserDTO
+import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service

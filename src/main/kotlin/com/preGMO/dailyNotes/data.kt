@@ -1,4 +1,4 @@
-package com.pre_gmo.daily_notes
+package com.preGMO.dailyNotes
 
 data class UserDTO(
     val name: String,

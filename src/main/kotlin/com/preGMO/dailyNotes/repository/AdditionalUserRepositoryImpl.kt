@@ -1,7 +1,7 @@
-package com.pre_gmo.daily_notes.repository
+package com.preGMO.dailyNotes.repository
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
+import com.preGMO.dailyNotes.UserDTO
+import com.preGMO.dailyNotes.model.User
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
 import jakarta.transaction.Transactional
@@ -14,7 +14,8 @@ class AdditionalUserRepositoryImpl : AdditionalUserRepository {
 
     @Transactional
     override fun createUser(user: UserDTO): User {
-        entityManager.createNativeQuery("INSERT INTO users (name, email) VALUES (?, ?)", User::class.java)
+        entityManager
+            .createNativeQuery("INSERT INTO users (name, email) VALUES (?, ?)", User::class.java)
             .setParameter(1, user.name)
             .setParameter(2, user.email)
             .executeUpdate()
@@ -25,7 +26,8 @@ class AdditionalUserRepositoryImpl : AdditionalUserRepository {
 
     @Transactional
     override fun updateUser(user: User): User {
-        entityManager.createNativeQuery("UPDATE users SET name = ?, email = ? WHERE id = ?;", User::class.java)
+        entityManager
+            .createNativeQuery("UPDATE users SET name = ?, email = ? WHERE id = ?;", User::class.java)
             .setParameter(1, user.name)
             .setParameter(2, user.email)
             .setParameter(3, user.id)
@@ -37,7 +39,8 @@ class AdditionalUserRepositoryImpl : AdditionalUserRepository {
 
     @Transactional
     override fun deleteUser(user: User) {
-        entityManager.createNativeQuery("DELETE FROM users WHERE id = ?;", User::class.java)
+        entityManager
+            .createNativeQuery("DELETE FROM users WHERE id = ?;", User::class.java)
             .setParameter(1, user.id)
             .executeUpdate()
     }
