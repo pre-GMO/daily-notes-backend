@@ -7,22 +7,31 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/post")
-class PostController(private val postRepository: PostRepository) {
-
-    @GetMapping
+class PostController(
+    private val postRepository: PostRepository,
+) {
+    @GetMapping(produces = ["application/json"])
     fun getAllPosts(): List<Post> = postRepository.findAll()
 
-    @PostMapping
-    fun createPost(@RequestBody post: Post): Post = postRepository.save(post)
+    @PostMapping(produces = ["application/json"])
+    fun createPost(
+        @RequestBody post: Post,
+    ): Post = postRepository.save(post)
 
-    @GetMapping("/{id}")
-    fun getPostById(@PathVariable id: Long): ResponseEntity<Post> =
-        postRepository.findById(id).map { post ->
-            ResponseEntity.ok(post)
-        }.orElse(ResponseEntity.notFound().build())
+    @GetMapping("/{id}", produces = ["application/json"])
+    fun getPostById(
+        @PathVariable id: Long,
+    ): ResponseEntity<Post> =
+        postRepository
+            .findById(id)
+            .map { post ->
+                ResponseEntity.ok(post)
+            }.orElse(ResponseEntity.notFound().build())
 
-    @GetMapping("/user/{userId}")
-    fun getPostsByUserId(@PathVariable userId: Long): ResponseEntity<List<Post>> {
+    @GetMapping("/user/{userId}", produces = ["application/json"])
+    fun getPostsByUserId(
+        @PathVariable userId: Long,
+    ): ResponseEntity<List<Post>> {
         val posts = postRepository.findByUserId(userId)
         return if (posts.isNotEmpty()) {
             ResponseEntity.ok(posts)
