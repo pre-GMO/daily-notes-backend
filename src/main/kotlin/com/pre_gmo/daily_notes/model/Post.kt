@@ -11,22 +11,8 @@ data class Post(
     val content: String,
     @ManyToOne @JoinColumn(name = "user_id", referencedColumnName = "id")
     val user: User,
-    @Column(name = "created_at")
-    var createdAt: OffsetDateTime,
-    @Column(name = "updated_at")
-    var updatedAt: OffsetDateTime
-) {
-    @PrePersist
-    fun prePersist() {
-        val now = OffsetDateTime.now()
-        if (createdAt == null) {
-            createdAt = now
-        }
-        updatedAt = now
-    }
-
-    @PreUpdate
-    fun preUpdate() {
-        updatedAt = OffsetDateTime.now()
-    }
-}
+    @Column(name = "created_at", updatable = false, nullable = false)
+    var createdAt: OffsetDateTime = OffsetDateTime.now(),
+    @Column(name = "updated_at", nullable = false)
+    var updatedAt: OffsetDateTime = OffsetDateTime.now()
+)

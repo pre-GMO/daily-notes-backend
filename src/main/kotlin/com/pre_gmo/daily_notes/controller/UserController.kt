@@ -1,38 +1,58 @@
 package com.pre_gmo.daily_notes.controller
 
+import com.pre_gmo.daily_notes.UserDTO
 import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.repository.UserRepository
+import com.pre_gmo.daily_notes.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/user")
-class UserController(private val userRepository: UserRepository) {
-
+class UserController(
+    private val userService: UserService,
+) {
     @GetMapping
-    fun getAllUsers(): List<User> = userRepository.findAll()
-
-    @PostMapping
-    fun createUser(@RequestBody user: User): User = userRepository.save(user)
+    fun getAllUsers(): ResponseEntity<List<User>> =
+        ResponseEntity
+            .ok(userService.findAll())
 
     @GetMapping("/{id}")
-    fun getUserById(@PathVariable id: Long): ResponseEntity<User> =
-        userRepository.findById(id).map { user ->
-            ResponseEntity.ok(user)
-        }.orElse(ResponseEntity.notFound().build())
+    fun getUserById(
+        @PathVariable id: Long,
+    ): ResponseEntity<User> =
+        userService
+            .findById(id)
+            .map { ResponseEntity.ok(it) }
+            .orElse(ResponseEntity.notFound().build())
+
+    @PostMapping
+    fun createUser(
+        @RequestBody user: UserDTO,
+    ): ResponseEntity<User> =
+        ResponseEntity
+            .status(HttpStatus.CREATED)
+            .body(userService.create((user)))
 
     @PutMapping("/{id}")
-    fun updateUser(@PathVariable id: Long, @RequestBody updatedUser: User): ResponseEntity<User> =
-        userRepository.findById(id).map { existingUser ->
-            val updated: User = existingUser.copy(name = updatedUser.name, email = updatedUser.email)
-            ResponseEntity.ok().body(userRepository.save(updated))
-        }.orElse(ResponseEntity.notFound().build())
+    fun updateUser(
+        @PathVariable id: Long,
+        @RequestBody updatedUser: UserDTO,
+    ): ResponseEntity<User> =
+        userService
+            .findById(id)
+            .map { existingUser ->
+                ResponseEntity.ok(userService.update(existingUser.copy(name = updatedUser.name, email = updatedUser.email)))
+            }.orElse(ResponseEntity.notFound().build())
 
     @DeleteMapping("/{id}")
-    fun deleteUser(@PathVariable id: Long): ResponseEntity<Void> =
-        userRepository.findById(id).map { user ->
-            userRepository.delete(user)
-            ResponseEntity<Void>(HttpStatus.OK)
-        }.orElse(ResponseEntity.notFound().build())
+    fun deleteUser(
+        @PathVariable id: Long,
+    ): ResponseEntity<Void> =
+        userService
+            .findById(id)
+            .map { user ->
+                userService.delete(user)
+                ResponseEntity<Void>(HttpStatus.OK)
+            }.orElse(ResponseEntity.notFound().build())
 }
