@@ -12,3 +12,4 @@ data class CreatePostVersionDTO(
     val content: String,
     val nextVersionNumber: Int
 )
+

@@ -74,6 +74,7 @@ class PostVersionRepositoryImpl : PostVersionRepository {
         query.setParameter("postId", postId)
         val result = query.resultList
 
+        // FIXME: ここもマジックナンバーを消して、型実装したい
         if (result.isEmpty()) return -1
         return (result[0] as Number).toInt()
     }
