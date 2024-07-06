@@ -1,7 +1,7 @@
 package com.preGMO.dailyNotes.repository
 
-import com.preGMO.dailyNotes.UserDTO
 import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.type.UserDTO
 import jakarta.persistence.EntityManager
 import jakarta.persistence.PersistenceContext
 import jakarta.transaction.Transactional

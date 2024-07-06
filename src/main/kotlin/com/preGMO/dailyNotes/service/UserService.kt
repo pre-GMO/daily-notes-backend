@@ -1,8 +1,8 @@
 package com.preGMO.dailyNotes.service
 
-import com.preGMO.dailyNotes.UserDTO
 import com.preGMO.dailyNotes.model.User
 import com.preGMO.dailyNotes.repository.UserRepository
+import com.preGMO.dailyNotes.type.UserDTO
 import org.springframework.stereotype.Service
 
 @Service
