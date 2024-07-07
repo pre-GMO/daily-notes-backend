@@ -1,0 +1,25 @@
+{
+  "baseBranches": ["main"],
+  "extends": ["config:base", ":semanticCommitTypeAll(chore)"],
+  "timezone": "Asia/Tokyo",
+  "enabledManagers": ["gradle"],
+  "lockFileMaintenance": { "enabled": true },
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchManagers": ["gradle"],
+      "matchUpdateTypes": ["patch"],
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies", "plugins"],
+      "groupName": "patch"
+    },
+    {
+      "matchManagers": ["gradle"],
+      "matchUpdateTypes": ["minor"],
+      "matchPackagePatterns": ["*"],
+      "matchDepTypes": ["dependencies", "plugins"],
+      "groupName": "minor"
+    }
+  ]
+}
