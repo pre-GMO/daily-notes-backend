@@ -13,3 +13,7 @@ data class CreatePostVersionDTO(
     val nextVersionNumber: Int
 )
 
+data class CreateRequestPostVersionDTO(
+    val postId: Long,
+    val content: String
+)

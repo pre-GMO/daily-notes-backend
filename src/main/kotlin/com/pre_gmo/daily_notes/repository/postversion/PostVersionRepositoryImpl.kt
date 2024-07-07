@@ -17,7 +17,7 @@ class PostVersionRepositoryImpl : PostVersionRepository {
         val sql = """
             SELECT id, post_id, content, version_number
             FROM post_versions
-            WHERE (:postId)
+            WHERE post_id = :postId
         """.trimIndent()
 
         val query = entityManager.createNativeQuery(sql)

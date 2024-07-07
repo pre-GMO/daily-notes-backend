@@ -2,6 +2,7 @@ package com.pre_gmo.daily_notes.service.postversion
 
 import com.pre_gmo.daily_notes.dto.CreatePostVersionDTO
 import com.pre_gmo.daily_notes.dto.PostVersionDTO
+import com.pre_gmo.daily_notes.dto.CreateRequestPostVersionDTO
 import com.pre_gmo.daily_notes.repository.postversion.PostVersionRepository
 import org.springframework.stereotype.Service
 import jakarta.transaction.Transactional
@@ -18,11 +19,15 @@ class PostVersionServiceImpl(private val postVersionRepository: PostVersionRepos
         }
         return GetPostVersionResult(result[0], true)
     }
-    override fun createPostVersions(postId: Long, content: String): Boolean {
-        val nextVersionNumber = postVersionRepository.findLatestVersionNumberByPostId(postId)
-        if (nextVersionNumber == -1) return false
-        val createPostVersionDto = CreatePostVersionDTO(postId, content, nextVersionNumber)
+    override fun createPostVersions(
+        createRequestPostVersionDTO: CreateRequestPostVersionDTO) {
+        val searchResult = postVersionRepository.findLatestVersionNumberByPostId(
+            createRequestPostVersionDTO.postId)
+        val nextVersionNumber = if(searchResult == -1) 1 else searchResult
+        val createPostVersionDto = CreatePostVersionDTO(
+            createRequestPostVersionDTO.postId,
+            createRequestPostVersionDTO.content,
+            nextVersionNumber)
         postVersionRepository.createByPostId(createPostVersionDto)
-        return true
     }
 }
