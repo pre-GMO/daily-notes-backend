@@ -5,6 +5,7 @@ plugins {
 	id 'org.jetbrains.kotlin.plugin.spring' version '1.9.24'
 	id 'org.jetbrains.kotlin.plugin.jpa' version '1.9.24'
 	id 'org.springdoc.openapi-gradle-plugin' version '1.9.0'
+	id 'org.jlleitschuh.gradle.ktlint' version '12.1.1'
 }
 
 group = 'com.s-hirano'

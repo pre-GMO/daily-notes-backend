@@ -1,9 +1,12 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.model.PostVersion
-import com.pre_gmo.daily_notes.repository.PostVersionRepository
+import com.preGMO.dailyNotes.model.PostVersion
+import com.preGMO.dailyNotes.repository.PostVersionRepository
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/post-version")

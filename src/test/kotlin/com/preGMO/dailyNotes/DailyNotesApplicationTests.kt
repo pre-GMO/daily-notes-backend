@@ -1,13 +1,11 @@
-package com.pre_gmo.daily_notes
+package com.preGMO.dailyNotes
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class DailyNotesApplicationTests {
-
-	@Test
-	fun contextLoads() {
-	}
-
+    @Test
+    fun contextLoads() {
+    }
 }

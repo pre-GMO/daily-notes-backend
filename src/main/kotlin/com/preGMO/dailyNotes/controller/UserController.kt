@@ -1,11 +1,18 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.service.UserService
+import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.service.UserService
+import com.preGMO.dailyNotes.type.UserDTO
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.DeleteMapping
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/user", produces = ["application/json"])

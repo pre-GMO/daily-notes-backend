@@ -1,8 +1,8 @@
-package com.pre_gmo.daily_notes.controller
+package com.preGMO.dailyNotes.controller
 
-import com.pre_gmo.daily_notes.UserDTO
-import com.pre_gmo.daily_notes.model.User
-import com.pre_gmo.daily_notes.service.UserService
+import com.preGMO.dailyNotes.model.User
+import com.preGMO.dailyNotes.service.UserService
+import com.preGMO.dailyNotes.type.UserDTO
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito.times
@@ -14,9 +14,14 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import java.util.*
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.content
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import java.util.Optional
 
 @WebMvcTest(UserController::class)
 class UserControllerTest {

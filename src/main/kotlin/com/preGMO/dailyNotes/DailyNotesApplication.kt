@@ -1,4 +1,4 @@
-package com.pre_gmo.daily_notes
+package com.preGMO.dailyNotes
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class DailyNotesApplication
 
 fun main(args: Array<String>) {
-	runApplication<DailyNotesApplication>(*args)
+    runApplication<DailyNotesApplication>(*args)
 }
