@@ -14,8 +14,8 @@ data class PostVersion(
     @ManyToOne @JoinColumn(name = "post_id", referencedColumnName = "id")
     val post: Post,
     val content: String,
-    @Column(name = "version_number")
-    var versionNumber: Int,
-    @Column(name = "created_at")
-    var createdAt: OffsetDateTime
+    @Column(name = "created_at", updatable = false, nullable = false)
+    var createdAt: OffsetDateTime = OffsetDateTime.now(),
+    @Column(name = "updated_at", nullable = false)
+    var updatedAt: OffsetDateTime = OffsetDateTime.now()
 )
